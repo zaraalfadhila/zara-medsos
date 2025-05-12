@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Instagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fafafa;
+        }
+
+        .profile-header {
+            display: flex;
+            padding: 20px;
+            background-color: white;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden; /* penting untuk potong gambar jadi lingkaran */
+            margin-right: 30px;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* agar gambar penuh dan tidak gepeng */
+            display: block;
+        }
+
+        .profile-info {
+            flex-grow: 1;
+        }
+
+        .profile-info h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        .profile-stats div {
+            font-size: 16px;
+        }
+
+        .bio {
+            font-size: 14px;
+        }
+
+        .post-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .post-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+
+            .profile-pic {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-header">
+        <div class="profile-pic">
+            <img src="{{ user.foto_profil }}" alt="Foto Profil">
+        </div>
+        <div class="profile-info">
+            <a href="{% url 'beranda' %}">
+                <h2>{{user.username}}</h2>
+            </a>
+            <div class="profile-stats">
+                <div><strong>123</strong> posts</div>
+                <div><strong>4.5K</strong> followers</div>
+                <div><strong>321</strong> following</div>
+            </div>
+            <div class="bio">
+                <div>{{user.nama}}</div>
+                <div>{{user.bio}}</div>
+                <div>{{user.url}}</div>
+                <!-- {% for p in profil %}     -->
+                <!-- Nama Anda<br> -->
+                <!-- Deskripsi singkat tentang Anda atau hobi Anda ✨<br> -->
+                <!-- 🌍 www.websiteanda.com -->
+                <!-- {% endfor %} -->
+            </div>
+        </div>
+    </div>
+  
+    <div class="post-gallery">
+        {% for p in profil %}
+            <a href="{% url 'mypost' %}">
+                <img src="{{p.feed}}?random={{forloop.counter}}" alt="Post 1">
+            </a>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
+

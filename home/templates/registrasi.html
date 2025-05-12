@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daftar • Instagram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .register-container {
+      width: 350px;
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .register-container img {
+      margin-bottom: 20px;
+    }
+
+    .register-container h2 {
+      font-size: 17px;
+      color: #8e8e8e;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background: #fafafa;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3897f0;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .or {
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .or::before, .or::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: #dbdbdb;
+    }
+
+    .or::before {
+      left: 0;
+    }
+
+    .or::after {
+      right: 0;
+    }
+
+    .or span {
+      background: #fff;
+      padding: 0 10px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .login-link {
+      margin-top: 20px;
+      border: 1px solid #dbdbdb;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #3897f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .policy {
+      font-size: 12px;
+      color: #999;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <div class="register-container">
+        <a href="{% url 'home' %}">
+          <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram Logo" width="175">
+      </a>
+      <h2>Daftar untuk melihat foto dan video dari teman-temanmu.</h2>
+      <form>
+        <input type="email" placeholder="Nomor ponsel atau email" required>
+        <input type="text" placeholder="Nama lengkap" required>
+        <input type="text" placeholder="Nama pengguna" required>
+        <input type="password" placeholder="Kata sandi" required>
+        <button type="submit">Daftar</button>
+      </form>
+      <div class="policy">
+        Dengan mendaftar, kamu menyetujui Ketentuan, Kebijakan Privasi, dan Kebijakan Cookie kami.
+      </div>
+    </div>
+
+    <div class="login-link">
+      Sudah punya akun? <a href="{% url 'beranda' %}">Masuk</a>
+    </div>
+  </div>
+
+</body>
+</html>

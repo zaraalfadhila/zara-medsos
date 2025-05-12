@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login • Instagram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      width: 350px;
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      text-align: center;
+    }
+    .login-container img {
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background: #fafafa;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3897f0;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .or {
+      margin: 20px 0;
+      position: relative;
+    }
+    .or::before, .or::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: #dbdbdb;
+    }
+    .or::before {
+      left: 0;
+    }
+    .or::after {
+      right: 0;
+    }
+    .or span {
+      background: #fff;
+      padding: 0 10px;
+      color: #999;
+      font-size: 14px;
+    }
+    .bottom-text {
+      font-size: 12px;
+      color: #999;
+      margin-top: 20px;
+    }
+    .signup {
+      margin-top: 20px;
+      border: 1px solid #dbdbdb;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .signup a {
+      color: #3897f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <div class="login-container">
+    <a href="{%url 'home'%}">
+        <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram Logo" width="175">
+    </a>
+      <form>
+        <input type="text" placeholder="Nomor telepon, nama pengguna, atau email" required>
+        <input type="password" placeholder="Kata Sandi" required>
+        <a href="{% url 'beranda'%}">
+          <button type="submit">Masuk</button>
+        </a>
+      </form>
+      <div class="or"><span>ATAU</span></div>
+      <div>
+        <a href="#" style="color: #385185; font-weight: bold;">Masuk dengan Facebook</a>
+      </div>
+      <div class="bottom-text">
+        Lupa kata sandi?
+      </div>
+    </div>
+
+    <div class="signup">
+      Tidak punya akun? <a href="{% url 'registrasi' %}">Daftar</a>
+    </div>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #dbdbdb;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header img.logo {
+      height: 30px;
+    }
+
+    .header .nav-icons img {
+      width: 24px;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    /* Main layout */
+    .main-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .feed {
+      width: 500px;
+    }
+
+    .post {
+      background-color: #fff;
+      border: 1px solid #dbdbdb;
+      margin-bottom: 20px;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .post-header img.avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post-header .username {
+      font-weight: bold;
+    }
+
+    .post-image img {
+      width: 100%;
+      display: block;
+    }
+
+    .post-actions {
+      display: flex;
+      padding: 10px;
+    }
+
+    .post-actions img {
+      width: 24px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .post-caption {
+      padding: 0 10px 10px;
+    }
+
+    .post-caption .username {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    /* Sidebar kanan */
+    .sidebar {
+      width: 300px;
+      margin-left: 30px;
+    }
+
+    .profile-summary {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-summary img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .profile-summary .username {
+      font-weight: bold;
+    }
+
+    .profile-summary .name {
+      color: gray;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img class="logo" src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram">
+    <div class="nav-icons">
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/home--v1.png" alt="Home">
+      <a href="{% url 'chat' %}">
+          <img src="https://img.icons8.com/ios-glyphs/30/000000/send-mass-email.png" alt="DM">
+      </a>
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/compass--v1.png" alt="Explore">
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/like--v1.png" alt="Like">
+      <a href="{% url 'profil'%}"> 
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="Profile">
+      </a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-container">
+    <!-- Feed -->
+    <div class="feed">
+      <!-- Post 1 -->
+       {% for f in feed%}
+        <div class="post">
+          <div class="post-header">
+            <img class="avatar" src="{{f.profil}}?random={{forloop.counter}}" alt="Avatar">
+            <div class="username">{{f.username}}</div>
+          </div>
+          <div class="post-image">
+            <img src="{{f.img}}?random={{forloop.counter}}" alt="Post Image">
+          </div>
+          <div class="post-actions">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/like--v1.png" alt="Like">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/speech-bubble.png" alt="Comment">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/paper-plane.png" alt="Share">
+          </div>
+          <div class="post-caption">
+            <span class="username">{{f.username}}</span> {{f.caption}} ☀️
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="profile-summary">
+        <img src="https://via.placeholder.com/56" alt="Profile Picture">
+        <div>
+          <div class="username">username_kamu</div>
+          <div class="name">Nama Kamu</div>
+        </div>
+      </div>
+      <!-- Tambahan konten bisa disisipkan di sini seperti saran akun -->
+    </div>
+  </div>
+
+</body>
+</html>

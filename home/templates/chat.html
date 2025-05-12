@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DM • Instagram</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #fafafa;
+    }
+
+    /* Sidebar kiri */
+    .sidebar {
+      width: 300px;
+      border-right: 1px solid #dbdbdb;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 15px;
+      border-bottom: 1px solid #dbdbdb;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .conversation-list {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .conversation {
+      padding: 15px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+    }
+
+    .conversation:hover {
+      background-color: #f9f9f9;
+    }
+
+    .conversation strong {
+      display: block;
+    }
+
+    /* Area pesan */
+    .chat-area {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+    }
+
+    .chat-header {
+      padding: 15px;
+      border-bottom: 1px solid #dbdbdb;
+      font-weight: bold;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin: 10px 0;
+      max-width: 70%;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .sent {
+      background-color: #dcf8c6;
+      align-self: flex-end;
+    }
+
+    .received {
+      background-color: #eee;
+      align-self: flex-start;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #dbdbdb;
+      padding: 10px;
+    }
+
+    .chat-input input {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #dbdbdb;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    .chat-input button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #3897f0;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <a href="{% url 'beranda'%}">
+        <div class="sidebar-header">direct</div>
+    </a>
+    <div class="conversation-list">
+      <div class="conversation">
+        <strong>teman1</strong>
+        Hai, apa kabar?
+      </div>
+      <div class="conversation">
+        <strong>teman2</strong>
+        Yuk ngopi sore nanti
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-area">
+    <div class="chat-header">teman1</div>
+    <div class="chat-messages">
+      <div class="message received">Hai!</div>
+      <div class="message sent">Halo, kabar baik!</div>
+      <div class="message received">Lagi ngapain?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Kirim pesan...">
+      <button>Kirim</button>
+    </div>
+  </div>
+
+</body>
+</html>
